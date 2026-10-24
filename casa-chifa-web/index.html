@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Casa Chifa Guayaquil</title>
+<meta name="description" content="Casa Chifa: los chaulafanes más grandes de Guayaquil. 3, 5 y 11,5 libras. Pide por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Figtree:wght@400;500;700;900&family=DM+Mono:wght@500&family=Noto+Serif+SC:wght@900&display=swap">
+<style>
+/* Layout: letrero de neón de chifa de barrio de noche; la libra (lb) es la unidad que manda. Una sola atmósfera oscura a propósito. */
+:root{
+  --ink:#140d0c; --ink-2:#1f1513; --ink-3:#2c1e1b;
+  --chili:#ef2b36; --neon:#ff5a6e; --jade:#35d6a6; --yolk:#ffc94a;
+  --paper:#fbeee0; --muted:#c9b3a6; --line:rgba(251,238,224,.12);
+  --f-display:"Bagel Fat One","Cooper Black","Arial Black",system-ui,sans-serif;
+  --f-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"DM Mono",ui-monospace,Menlo,monospace;
+  --f-han:"Noto Serif SC","Songti SC","SimSun",serif;
+  --gut-l:max(16px,env(safe-area-inset-left,0px));
+  --gut-r:max(16px,env(safe-area-inset-right,0px));
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--f-body);font-size:17px;line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--yolk);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1200px;margin-inline:auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.02}
+h2{font-family:var(--f-display);font-weight:400;font-size:clamp(2.2rem,6vw,4rem);letter-spacing:.01em}
+.eyebrow{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--jade)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;font:700 1rem/1 var(--f-body);padding:.95em 1.4em;border-radius:999px;border:2px solid transparent;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s,color .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-hot{background:var(--chili);color:var(--paper);box-shadow:0 10px 30px -8px var(--chili)}
+.btn-hot:hover{box-shadow:0 0 26px 2px var(--neon)}
+.btn-ghost{border-color:var(--line);color:var(--paper);background:transparent}
+.btn-ghost:hover{border-color:var(--yolk);color:var(--yolk)}
+section{padding-block:clamp(64px,9vw,120px)}
+.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px 40px;margin-bottom:40px}
+.sec-head > div{display:grid;gap:12px}
+.sec-head p{max-width:44ch;color:var(--muted);margin:0}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--ink) 84%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo .seal{width:40px;height:40px;border-radius:8px;background:var(--chili);display:grid;place-items:center;font:900 22px/1 var(--f-han);color:var(--paper);transform:rotate(45deg);box-shadow:0 0 18px -2px var(--neon)}
+.logo .seal span{transform:rotate(-45deg)}
+.logo b{font-family:var(--f-display);font-weight:400;font-size:1.35rem}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-weight:500;font-size:.95rem}
+.nav ul a{text-decoration:none;color:var(--muted)}
+.nav ul a:hover{color:var(--paper)}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.76rem;padding:7px 12px;border-radius:999px;border:1px solid var(--line);white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--jade);box-shadow:0 0 10px var(--jade);animation:pulse 1.6s infinite}
+.status.closed .dot{background:var(--chili);box-shadow:0 0 10px var(--chili)}
+@keyframes pulse{50%{opacity:.35}}
+@media (max-width:920px){.nav ul{display:none}}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding-block:clamp(36px,6vw,80px) clamp(56px,7vw,96px)}
+.hero::before{content:"";position:absolute;right:-15%;top:-20%;width:80vw;height:80vw;max-width:1000px;max-height:1000px;background:radial-gradient(circle,color-mix(in srgb,var(--chili) 40%,transparent),transparent 62%);pointer-events:none}
+.han-bg{position:absolute;left:-3vw;bottom:-6vw;font:900 clamp(12rem,30vw,26rem)/.85 var(--f-han);color:transparent;-webkit-text-stroke:2px color-mix(in srgb,var(--neon) 18%,transparent);pointer-events:none;user-select:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,64px);align-items:center}
+.hero-copy{min-width:0;display:grid;gap:18px;justify-items:start}
+.sign{font-family:var(--f-display);font-weight:400;font-size:clamp(3.6rem,11vw,8.4rem);line-height:.86;color:var(--paper);text-shadow:0 0 6px var(--neon),0 0 22px var(--neon),0 0 52px var(--chili)}
+.sign .flick{animation:flicker 5s infinite}
+.sign .row2{color:var(--yolk);text-shadow:0 0 6px var(--yolk),0 0 26px color-mix(in srgb,var(--yolk) 70%,var(--chili))}
+@keyframes flicker{0%,18%,22%,62%,64%,100%{opacity:1}20%,63%{opacity:.35}}
+.claim{font-family:var(--f-body);font-weight:900;font-size:clamp(1.35rem,2.8vw,2rem);line-height:1.15;max-width:22ch}
+.claim em{font-style:normal;color:var(--yolk)}
+.lede{font-size:clamp(1.02rem,1.8vw,1.18rem);max-width:40ch;color:var(--muted);margin:0}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.stats{display:grid;grid-template-columns:repeat(3,auto);gap:10px 28px;margin:10px 0 0;padding:18px 0 0;border-top:1px solid var(--line)}
+.stats div{display:grid;gap:2px}
+.stats b{font-family:var(--f-display);font-weight:400;font-size:clamp(1.5rem,3vw,2.1rem);color:var(--paper);line-height:1}
+.stats span{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;color:var(--muted)}
+@media (max-width:520px){.stats{grid-template-columns:repeat(2,auto)}}
+
+.collage{position:relative;min-height:clamp(420px,52vw,600px)}
+.ph{position:absolute;margin:0;border-radius:22px;overflow:hidden;border:4px solid var(--paper);box-shadow:0 30px 60px -20px #000;background:var(--ink-3)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph.a{left:4%;top:0;width:64%;aspect-ratio:4/5;transform:rotate(-4deg);z-index:2}
+.ph.b{right:0;bottom:2%;width:48%;aspect-ratio:3/4;transform:rotate(5deg);z-index:3}
+.ph.c{right:6%;top:2%;width:34%;aspect-ratio:1;transform:rotate(8deg);z-index:1;opacity:.9}
+.tag-lb{position:absolute;left:0;bottom:8%;z-index:4;width:clamp(110px,15vw,148px);aspect-ratio:1;border-radius:50%;background:var(--yolk);color:var(--ink);display:grid;place-content:center;text-align:center;transform:rotate(-14deg);box-shadow:0 14px 30px -10px var(--yolk);font:900 .78rem/1.1 var(--f-body);text-transform:uppercase;letter-spacing:.06em}
+.tag-lb big{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(2.2rem,4vw,3rem);line-height:.95;letter-spacing:0}
+.price-flag{position:absolute;right:2%;bottom:-3%;z-index:5;background:var(--chili);color:var(--paper);font:700 .9rem/1.1 var(--f-body);padding:10px 16px;border-radius:12px;transform:rotate(-3deg);box-shadow:0 0 22px -4px var(--neon)}
+.price-flag b{font-family:var(--f-mono);font-size:1.2rem}
+@media (max-width:920px){.hero-grid{grid-template-columns:1fr}.collage{min-height:0;aspect-ratio:1/1.05;max-width:560px;width:100%;justify-self:center}}
+
+/* MARQUEE */
+.marquee{background:var(--chili);overflow:hidden;border-block:3px solid var(--ink);transform:rotate(-1.5deg);position:relative;z-index:2}
+.marquee .track{display:flex;width:max-content;animation:slide 30s linear infinite;padding-block:14px}
+.marquee span{font-family:var(--f-display);font-size:clamp(1.3rem,3vw,2rem);white-space:nowrap;padding-inline:22px;color:var(--paper)}
+.marquee span:nth-child(even){color:var(--yolk);font-family:var(--f-han);font-weight:900}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* SCALE */
+.scale-box{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center;padding:clamp(24px,5vw,56px);border-radius:28px;background:var(--ink-2);border:1px solid var(--line)}
+.sizes{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0}
+.size{flex:1 1 120px;display:grid;gap:4px;text-align:left;padding:16px;border-radius:16px;border:1.5px solid var(--line);background:transparent;color:var(--paper);cursor:pointer;font:inherit}
+.size b{font-family:var(--f-display);font-weight:400;font-size:1.9rem;line-height:1}
+.size span{font-family:var(--f-mono);font-size:.78rem;color:var(--muted)}
+.size[aria-pressed="true"]{background:var(--yolk);border-color:var(--yolk);color:var(--ink)}
+.size[aria-pressed="true"] span{color:var(--ink)}
+.readout{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
+.readout div{padding:14px;border-radius:14px;background:var(--ink);border:1px solid var(--line);min-width:0}
+.readout small{display:block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--jade)}
+.readout b{font-family:var(--f-mono);font-size:clamp(1.05rem,2.2vw,1.4rem);font-variant-numeric:tabular-nums}
+.bowl-stage{position:relative;aspect-ratio:1;max-width:440px;width:100%;justify-self:center;display:grid;place-items:center}
+.bowl-stage .ring{position:absolute;inset:0;border-radius:50%;border:2px dashed var(--line)}
+.bowl-stage .ring::after{content:"11,5 lb";position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--ink-2);padding:0 8px;font-family:var(--f-mono);font-size:.72rem;color:var(--muted)}
+.bowl{width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:5px solid var(--paper);box-shadow:0 0 50px -6px var(--chili);transition:transform .6s cubic-bezier(.3,1.5,.5,1)}
+.bowl img{width:100%;height:100%;object-fit:cover}
+.bowl-lb{position:absolute;bottom:4%;right:4%;background:var(--chili);color:var(--paper);font-family:var(--f-display);font-size:1.6rem;padding:6px 16px;border-radius:999px;box-shadow:0 0 20px -2px var(--neon)}
+@media (max-width:820px){.scale-box{grid-template-columns:1fr}.readout{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:420px){.readout{grid-template-columns:1fr}}
+
+/* MENU */
+.menu-sec{background:linear-gradient(180deg,var(--ink) 0,var(--ink-2) 35%,var(--ink) 100%)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.tab{font:700 .95rem/1 var(--f-body);padding:12px 18px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--yolk);color:var(--ink);border-color:var(--yolk)}
+.tab:hover:not([aria-selected="true"]){border-color:var(--paper);color:var(--paper)}
+.dishes{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:18px}
+.dish{display:flex;flex-direction:column;border-radius:20px;background:var(--ink);border:1px solid var(--line);overflow:hidden;min-width:0;transition:transform .2s,border-color .2s}
+.dish:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--yolk) 60%,transparent)}
+.dish .pic{position:relative;aspect-ratio:4/3;background:var(--ink-3);overflow:hidden;border:0;padding:0;cursor:zoom-in;width:100%}
+.dish .pic img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.dish:hover .pic img{transform:scale(1.06)}
+.dish .pic.none{display:grid;place-items:center;cursor:default;background:radial-gradient(circle at 30% 30%,color-mix(in srgb,var(--chili) 35%,var(--ink-3)),var(--ink-3))}
+.dish .pic.none span{font:900 4.5rem/1 var(--f-han);color:color-mix(in srgb,var(--paper) 30%,transparent)}
+.dish .lb{position:absolute;left:12px;top:12px;background:var(--yolk);color:var(--ink);font:900 .78rem/1 var(--f-mono);padding:7px 10px;border-radius:999px}
+.dish .body{display:flex;flex-direction:column;gap:10px;padding:18px 18px 20px;flex:1}
+.dish header{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.dish h3{font-size:1.15rem;font-weight:900;line-height:1.2}
+.price{font-family:var(--f-mono);font-size:1.05rem;color:var(--yolk);font-variant-numeric:tabular-nums;white-space:nowrap}
+.price.ask{font-size:.78rem;color:var(--muted);border:1px solid var(--line);padding:4px 8px;border-radius:6px}
+.dish p{margin:0;color:var(--muted);font-size:.93rem;flex:1}
+.add{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font:700 .9rem/1 var(--f-body);padding:10px 16px;border-radius:999px;border:1.5px solid var(--chili);background:transparent;color:var(--paper);cursor:pointer;transition:background .15s}
+.add:hover{background:var(--chili)}
+.add.added{background:var(--jade);border-color:var(--jade);color:var(--ink)}
+.note{margin-top:22px;font-size:.82rem;color:var(--muted);font-family:var(--f-mono)}
+
+/* GALLERY */
+.gallery{columns:4 220px;column-gap:14px}
+.gallery button{display:block;width:100%;margin:0 0 14px;padding:0;border:0;border-radius:16px;overflow:hidden;cursor:zoom-in;background:var(--ink-3);break-inside:avoid}
+.gallery img{width:100%;height:auto;transition:transform .5s,filter .3s;filter:saturate(1.05)}
+.gallery button:hover img{transform:scale(1.04);filter:saturate(1.25)}
+.lightbox{position:fixed;inset:0;z-index:80;background:rgba(10,6,5,.94);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;padding:calc(16px + env(safe-area-inset-top,0px)) var(--gut-r) calc(16px + env(safe-area-inset-bottom,0px)) var(--gut-l)}
+.lightbox figure{margin:0;display:grid;justify-items:center;gap:10px;min-width:0;height:100%;grid-template-rows:1fr auto}
+.lightbox img{max-height:calc(100vh - 120px);max-width:100%;width:auto;object-fit:contain;border-radius:12px;align-self:center}
+.lightbox figcaption{font-family:var(--f-mono);font-size:.85rem;color:var(--muted)}
+.lb-btn{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--ink-2);color:var(--paper);font-size:1.3rem;cursor:pointer}
+.lb-close{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:calc(14px + env(safe-area-inset-right,0px))}
+@media (max-width:600px){.lightbox{grid-template-columns:1fr}.lb-prev,.lb-next{position:absolute;bottom:calc(16px + env(safe-area-inset-bottom,0px))}.lb-prev{left:calc(16px + env(safe-area-inset-left,0px))}.lb-next{right:calc(16px + env(safe-area-inset-right,0px))}}
+
+/* WOK */
+.wok-sec .box{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,60px);align-items:center;padding:clamp(24px,5vw,56px);border-radius:28px;background:radial-gradient(120% 140% at 0% 0%,color-mix(in srgb,var(--chili) 45%,var(--ink-2)),var(--ink-2) 60%);border:1px solid var(--line)}
+.wok{width:clamp(180px,26vw,260px);aspect-ratio:1;max-width:100%;position:relative}
+.wok svg{width:100%;height:100%;overflow:visible}
+.wok.spin .pan{animation:toss .55s ease-in-out 3}
+.wok.spin .bits{animation:bits .55s ease-in-out 3}
+@keyframes toss{0%,100%{transform:rotate(0)}40%{transform:rotate(-10deg) translateY(-6px)}70%{transform:rotate(6deg)}}
+@keyframes bits{0%,100%{transform:translateY(0)}45%{transform:translateY(-58px) rotate(18deg)}}
+.pan,.bits{transform-origin:50% 70%;transform-box:fill-box}
+.result{min-width:0;display:grid;gap:10px;justify-items:start}
+.result .pick{font-family:var(--f-display);font-size:clamp(1.8rem,4.5vw,3rem);line-height:1.05;color:var(--yolk);min-height:1.1em}
+.result p{color:var(--muted);margin:0 0 8px}
+@media (max-width:700px){.wok-sec .box{grid-template-columns:1fr;justify-items:center;text-align:center}.result{justify-items:center}}
+
+/* EVENTS */
+.events{display:grid;grid-template-columns:.9fr 1.1fr;gap:0;border-radius:28px;overflow:hidden;border:1px solid var(--line);background:var(--yolk);color:var(--ink)}
+.events .img{min-height:340px;background:var(--ink-3)}
+.events .img img{width:100%;height:100%;object-fit:cover}
+.events .txt{padding:clamp(28px,5vw,56px);display:grid;gap:16px;align-content:center;justify-items:start;min-width:0}
+.events .eyebrow{color:var(--chili)}
+.events h2{color:var(--ink)}
+.events p{margin:0;max-width:44ch;font-weight:500}
+.events .btn-hot{box-shadow:none}
+@media (max-width:820px){.events{grid-template-columns:1fr}.events .img{min-height:0;aspect-ratio:4/3}}
+
+/* PROOF */
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{padding:clamp(22px,3.5vw,36px);border-radius:24px;border:1px solid var(--line);background:var(--ink-2);min-width:0;display:grid;gap:12px;align-content:start;justify-items:start}
+.card .num{font-family:var(--f-display);font-weight:400;font-size:clamp(3rem,7vw,4.6rem);line-height:.9;color:var(--yolk)}
+.stars{font-size:1.4rem;letter-spacing:.08em;color:var(--yolk)}
+.stars .off{color:var(--ink-3)}
+.card p{color:var(--muted);margin:0}
+.card.woman{background:linear-gradient(135deg,color-mix(in srgb,var(--jade) 22%,var(--ink-2)),var(--ink-2) 65%)}
+.card.woman h3{font-family:var(--f-display);font-weight:400;font-size:clamp(1.6rem,3vw,2.2rem)}
+@media (max-width:920px){.proof{grid-template-columns:1fr}}
+
+/* VISIT */
+.visit{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.local h3{font-family:var(--f-display);font-weight:400;font-size:clamp(1.7rem,3.4vw,2.4rem)}
+.info{list-style:none;margin:0;padding:0;width:100%}
+.info li{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.info li:last-child{border-bottom:0}
+.info span{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--jade);padding-top:3px}
+.info div{min-width:0;overflow-wrap:anywhere}
+.copy{margin-left:8px;font:700 .75rem/1 var(--f-body);padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--paper);cursor:pointer}
+.copy:hover{border-color:var(--yolk)}
+@media (max-width:820px){.visit{grid-template-columns:1fr}.info li{grid-template-columns:1fr;gap:4px}}
+
+footer{border-top:1px solid var(--line);padding-block:36px 120px;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+
+/* CART */
+.cart-fab{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;align-items:center;gap:10px;padding:14px 20px;border-radius:999px;border:0;background:var(--jade);color:var(--ink);font:900 1rem/1 var(--f-body);cursor:pointer;box-shadow:0 12px 30px -8px var(--jade);transition:transform .2s}
+.cart-fab:hover{transform:scale(1.05)}
+.cart-fab .n{min-width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--jade);display:grid;place-items:center;font-family:var(--f-mono);font-size:.85rem}
+.cart-fab.bump{animation:bump .4s}
+@keyframes bump{40%{transform:scale(1.15)}}
+.drawer{position:fixed;inset:0;z-index:60;display:flex;justify-content:flex-end;background:rgba(0,0,0,.55)}
+.panel{width:min(100%,430px);height:100%;background:var(--ink-2);border-left:1px solid var(--line);display:flex;flex-direction:column;padding:calc(20px + env(safe-area-inset-top,0px)) calc(20px + env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) 20px}
+.panel header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.panel h3{font-family:var(--f-display);font-weight:400;font-size:1.8rem}
+.x{background:transparent;border:1px solid var(--line);color:var(--paper);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.2rem}
+.lines{flex:1;overflow:auto;list-style:none;margin:0;padding:0}
+.lines li{display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--paper);cursor:pointer;font-weight:900}
+.empty{color:var(--muted);padding:24px 0}
+.pick-row{display:flex;gap:6px;margin:10px 0 0}
+.pick-row label{flex:1;text-align:center;font-size:.82rem;font-weight:700;padding:10px 6px;border-radius:10px;border:1px solid var(--line);cursor:pointer}
+.pick-row input{position:absolute;opacity:0;pointer-events:none}
+.pick-row input:checked+label{background:var(--yolk);color:var(--ink);border-color:var(--yolk)}
+.pick-row input:focus-visible+label{outline:3px solid var(--yolk);outline-offset:2px}
+.pick-lbl{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--jade);margin-top:14px}
+.total{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:1.1rem;padding:14px 0 16px;font-variant-numeric:tabular-nums}
+.total small{display:block;font-size:.72rem;color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--paper);color:var(--ink);padding:10px 18px;border-radius:999px;font-weight:700;z-index:90;font-size:.92rem;max-width:calc(100% - 32px);text-align:center}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Principal">
+  <div class="wrap">
+    <a class="logo" href="#inicio"><span class="seal" aria-hidden="true"><span>家</span></span><b>Casa Chifa</b></a>
+    <ul>
+      <li><a href="#tamanos">Tamaños</a></li>
+      <li><a href="#carta">Carta</a></li>
+      <li><a href="#fotos">Fotos</a></li>
+      <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#locales">Locales</a></li>
+    </ul>
+    <span class="status" id="status"><span class="dot"></span><span id="status-txt">Abierto hasta 10:30 p. m.</span></span>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="han-bg" aria-hidden="true">炒饭</div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Chifa · Guayaquil · 2 locales</span>
+      <h1 class="sign"><span class="flick">Casa</span><br><span class="row2">Chifa</span></h1>
+      <p class="claim">Los chaulafanes <em>más grandes</em> de Guayaquil.</p>
+      <p class="lede">De 3 libras desde $4,80 hasta el familiar de 11,5 libras. Arroz al wok con chancho, pollo, camarón y chuleta ahumada. Para comer aquí, para llevar o a domicilio.</p>
+      <div class="cta-row">
+        <a class="btn btn-hot" href="#tamanos">Elige tu tamaño</a>
+        <a class="btn btn-ghost" href="#carta">Ver la carta</a>
+      </div>
+      <div class="stats">
+        <div><b>122,6 mil</b><span>seguidores en Facebook</span></div>
+        <div><b>576 mil</b><span>vistas en un video de TikTok</span></div>
+        <div><b>★ 4,0</b><span>67 reseñas en Google</span></div>
+      </div>
+    </div>
+    <div class="collage">
+      <figure class="ph c"><img src="img/wantan.jpg" alt="Wantán frito" loading="eager"></figure>
+      <figure class="ph a"><img src="img/king-chaulafan-monster.jpg" alt="King Chaulafán Monster de 5 libras con chuleta, chancho, pollo y camarones" loading="eager"></figure>
+      <figure class="ph b"><img src="img/tallarin-presidente.jpg" alt="Tallarín Presidente con carne, camarones y vegetales" loading="eager"></figure>
+      <div class="tag-lb" aria-hidden="true"><span><big>5 lb</big>King Monster</span></div>
+      <div class="price-flag">Tallarín Presidente <b>$8,50</b></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+
+<section id="tamanos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Chaulafán por libra</span><h2>¿Cuánta hambre traes?</h2></div>
+      <p>Aquí el chaulafán se pide por peso. Elige el tamaño y mira cuánto rinde.</p>
+    </div>
+    <div class="scale-box">
+      <div>
+        <div class="sizes" role="group" aria-label="Tamaño del chaulafán" id="sizes"></div>
+        <div class="readout">
+          <div><small>Precio</small><b id="r-price">$4,80</b></div>
+          <div><small>Rinde aprox.</small><b id="r-people">1–2 pers.</b></div>
+          <div><small>Por libra</small><b id="r-lb">$1,60</b></div>
+        </div>
+        <button class="btn btn-hot" id="size-add" type="button">Agregar al pedido</button>
+      </div>
+      <div class="bowl-stage">
+        <div class="ring" aria-hidden="true"></div>
+        <div class="bowl" id="bowl"><img src="img/king-chaulafan-monster.jpg" alt=""></div>
+        <span class="bowl-lb" id="bowl-lb">3 lb</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu-sec" id="carta">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">La carta</span><h2>Del wok a tu mesa</h2></div>
+      <p>Toca <b>Agregar</b> en lo que se te antoje. Tu pedido se arma solo y lo envías por WhatsApp. Toca una foto para verla grande.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Categorías" id="tabs"></div>
+    <div class="dishes" id="dishes"></div>
+    <p class="note">Los platos marcados “Consultar” se confirman por WhatsApp. Precios sujetos a cambio.</p>
+  </div>
+</section>
+
+<section id="fotos" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Fotos reales</span><h2>Así llega a tu mesa</h2></div>
+      <p>Sin filtros de catálogo: platos servidos en Casa Chifa.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<section class="wok-sec" id="wok" style="padding-top:0">
+  <div class="wrap">
+    <div class="box">
+      <div class="wok" id="wok-art">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <g class="bits">
+            <circle cx="80" cy="96" r="7" fill="var(--yolk)"/><circle cx="104" cy="88" r="6" fill="var(--jade)"/><circle cx="122" cy="98" r="7" fill="var(--chili)"/><circle cx="96" cy="104" r="5" fill="var(--paper)"/><rect x="108" y="78" width="14" height="6" rx="3" fill="var(--neon)"/>
+          </g>
+          <g class="pan">
+            <path d="M30 110h140c0 34-31 58-70 58s-70-24-70-58z" fill="var(--ink-3)" stroke="var(--paper)" stroke-width="4"/>
+            <path d="M170 114l24-8" stroke="var(--paper)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M74 190q6-12 0-20M100 192q8-14 0-24M126 190q6-12 0-20" stroke="var(--yolk)" stroke-width="4" fill="none" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+      <div class="result">
+        <span class="eyebrow">¿No sabes qué pedir?</span>
+        <h2>Gira el wok</h2>
+        <div class="pick" id="pick" aria-live="polite">Hoy te toca…</div>
+        <p id="pick-desc">El wok elige por ti un plato de la carta.</p>
+        <div class="cta-row">
+          <button class="btn btn-hot" id="spin" type="button">Girar el wok</button>
+          <button class="btn btn-ghost" id="pick-add" type="button" hidden>Agregar al pedido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="eventos" style="padding-top:0">
+  <div class="wrap">
+    <div class="events">
+      <div class="img"><img src="img/bandeja-eventos.jpg" alt="Bandeja grande de chaulafán con chancho para un evento" loading="lazy"></div>
+      <div class="txt">
+        <span class="eyebrow">Cumpleaños · oficina · reuniones</span>
+        <h2>Bandejas para fiestas</h2>
+        <p>Chaulafán en bandeja para que alcance para todos. Cuéntanos cuántas personas son y te armamos la bandeja.</p>
+        <a class="btn btn-hot" id="events-wa" href="#" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="opiniones" style="padding-top:0">
+  <div class="wrap proof">
+    <div class="card">
+      <span class="eyebrow">Google Maps</span>
+      <span class="num">4,0</span>
+      <span class="stars" aria-label="4 de 5 estrellas">★★★★<span class="off">★</span></span>
+      <p>Promedio de <b>67 reseñas</b>. Doce personas dicen que se come bien por $5–15.</p>
+      <a class="btn btn-ghost" href="https://www.google.com/maps/place/CASA+CHIFA/@-2.0636969,-79.8899013,17z" target="_blank" rel="noopener">Ver reseñas</a>
+    </div>
+    <div class="card">
+      <span class="eyebrow">En redes</span>
+      <span class="num">122,6k</span>
+      <p>Seguidores en Facebook. Influencers de Guayaquil lo buscan por “el chaulafán más grande de la ciudad”.</p>
+      <a class="btn btn-ghost" href="https://www.facebook.com/search/top?q=casa%20chifa%20guayaquil" target="_blank" rel="noopener">Síguenos en Facebook</a>
+    </div>
+    <div class="card woman">
+      <span class="eyebrow">Hecho en casa</span>
+      <h3>Un negocio liderado por una mujer</h3>
+      <p>Casa Chifa es un emprendimiento de mujer empresaria. Cada pedido apoya a un negocio de Guayaquil.</p>
+    </div>
+  </div>
+</section>
+
+<section id="locales" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Locales</span><h2>Ven a vernos</h2></div>
+      <p>Abierto todos los días de 10:30 a. m. a 10:30 p. m. Consumo en el local, pedidos desde el carro y entrega sin contacto.</p>
+    </div>
+    <div class="visit">
+      <div class="card local">
+        <span class="eyebrow">Local 1</span>
+        <h3>Mucho Lote 2</h3>
+        <ul class="info">
+          <li><span>Ubicación</span><div>Cerca del Río Daule · Código Plus W4P6+G2</div></li>
+          <li><span>Horario</span><div>Lunes a domingo · 10:30 a. m. – 10:30 p. m.</div></li>
+          <li><span>Teléfono</span><div><b>096 367 8264</b><button class="copy" type="button" data-copy="096 367 8264">Copiar</button></div></li>
+        </ul>
+        <a class="btn btn-hot" href="https://www.google.com/maps/place/CASA+CHIFA/@-2.0636969,-79.8899013,17z" target="_blank" rel="noopener">Abrir en Google Maps</a>
+      </div>
+      <div class="card local">
+        <span class="eyebrow">Local 2</span>
+        <h3>Alborada</h3>
+        <ul class="info">
+          <li><span>Ubicación</span><div>Alborada, Guayaquil</div></li>
+          <li><span>Horario</span><div>Lunes a domingo · 10:30 a. m. – 10:30 p. m.</div></li>
+          <li><span>Teléfono</span><div><b>098 669 0170</b><button class="copy" type="button" data-copy="098 669 0170">Copiar</button></div></li>
+        </ul>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Casa%20Chifa%20Alborada%20Guayaquil" target="_blank" rel="noopener">Buscar en Google Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span><b style="color:var(--paper)">Casa Chifa</b> · Los chaulafanes más grandes de Guayaquil</span>
+    <span>096 367 8264 · 098 669 0170</span>
+  </div>
+</footer>
+
+<button class="cart-fab" id="fab" type="button" aria-haspopup="dialog">Mi pedido <span class="n" id="count">0</span></button>
+
+<div class="drawer" id="drawer" hidden>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+    <header><h3 id="cart-title">Tu pedido</h3><button class="x" id="close" type="button" aria-label="Cerrar">✕</button></header>
+    <ul class="lines" id="lines"></ul>
+    <div class="pick-lbl">¿Cómo lo quieres?</div>
+    <div class="pick-row" role="radiogroup" aria-label="Cómo lo quieres">
+      <input type="radio" name="mode" id="m1" value="Para comer en el local" checked><label for="m1">Aquí</label>
+      <input type="radio" name="mode" id="m2" value="Para recoger desde el carro"><label for="m2">Desde el carro</label>
+      <input type="radio" name="mode" id="m3" value="A domicilio"><label for="m3">Domicilio</label>
+    </div>
+    <div class="pick-lbl">¿A qué local?</div>
+    <div class="pick-row" role="radiogroup" aria-label="Local">
+      <input type="radio" name="local" id="l1" value="593963678264" data-name="Mucho Lote 2" checked><label for="l1">Mucho Lote 2</label>
+      <input type="radio" name="local" id="l2" value="593986690170" data-name="Alborada"><label for="l2">Alborada</label>
+    </div>
+    <div class="total"><span>Total aprox.<small id="ask-note" hidden>+ platos por confirmar</small></span><b id="total">$0,00</b></div>
+    <a class="btn btn-hot" id="send" href="#" target="_blank" rel="noopener">Enviar pedido por WhatsApp</a>
+    <p style="color:var(--muted);font-size:.8rem;margin:10px 0 0">Si WhatsApp no se abre, escribe o llama al <b id="send-num">096 367 8264</b>.</p>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <button class="lb-btn lb-prev" id="lb-prev" type="button" aria-label="Foto anterior">‹</button>
+  <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button class="lb-btn lb-next" id="lb-next" type="button" aria-label="Foto siguiente">›</button>
+  <button class="lb-btn lb-close" id="lb-close" type="button" aria-label="Cerrar">✕</button>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const OPEN_MIN = 10*60+30, CLOSE_MIN = 22*60+30; // 10:30 a 22:30 todos los días (Google Maps)
+
+// price: null = consultar por WhatsApp
+const MENU = [
+  {id:"c3",  cat:"Chaulafanes", han:"炒饭", name:"Chaulafán 3 libras", lb:"3 lb", desc:"Arroz al wok con chancho, pollo y camarón. Llena a uno con mucha hambre o a dos.", price:4.80, img:"chaulafan-camaron"},
+  {id:"c5",  cat:"Chaulafanes", han:"王", name:"King Chaulafán Monster", lb:"5 lb", desc:"Chuleta ahumada, chancho asado, alitas y camarones sobre 5 libras de chaulafán.", price:13.00, img:"king-chaulafan-monster"},
+  {id:"c11", cat:"Chaulafanes", han:"家", name:"Chaulafán familiar", lb:"11,5 lb", desc:"El gigante de la casa: 11,5 libras para la familia o la fiesta.", price:25.00, img:"bandeja-eventos"},
+  {id:"cp",  cat:"Chaulafanes", han:"总统", name:"Chaulafán Presidencial", desc:"Edición especial con 2 chuletas ahumadas encima.", price:null},
+  {id:"tp",  cat:"Tallarines y salteados", han:"炒面", name:"Tallarín Presidente", desc:"Carne, camarones, champiñones, brócoli, pimiento y zanahoria al wok.", price:8.50, img:"tallarin-presidente"},
+  {id:"tx",  cat:"Tallarines y salteados", han:"面", name:"Tallarín XL", desc:"Porción grande de tallarín salteado.", price:8.00},
+  {id:"sp",  cat:"Tallarines y salteados", han:"虾", name:"Salteado de pollo y camarón", desc:"Pollo, camarones, brócoli, col china y pimiento en salsa.", price:null, img:"salteado-pollo-camaron"},
+  {id:"cb",  cat:"Tallarines y salteados", han:"拼", name:"Combo chaulafán + salteado", desc:"Chaulafán con chuleta y salteado de camarón con vegetales en un solo plato.", price:null, img:"combo-chaulafan-salteado"},
+  {id:"ca",  cat:"Tallarines y salteados", han:"甜酸", name:"Chancho agridulce", desc:"Chancho crocante con cebolla, pimiento y salsa agridulce.", price:null, img:"chancho-agridulce"},
+  {id:"wf",  cat:"Entradas y sopas", han:"馄饨", name:"Wantán frito", desc:"Crocantes y rellenos, para picar mientras llega el plato fuerte.", price:null, img:"wantan"},
+  {id:"cs",  cat:"Entradas y sopas", han:"汤", name:"Consomé natural o a la reina", desc:"Caldo caliente con vegetales, zanahoria y pollo desmenuzado.", price:null, img:"consome"},
+  {id:"aq",  cat:"Entradas y sopas", han:"翅", name:"Alitas con queso", desc:"Alitas glaseadas con queso cheddar derretido y queso rallado.", price:null, img:"alitas-queso"},
+];
+const SIZES = [
+  {id:"c3",  lb:3,   label:"3 lb",    people:"1–2 pers.", scale:.58},
+  {id:"c5",  lb:5,   label:"5 lb",    people:"3–4 pers.", scale:.75},
+  {id:"c11", lb:11.5,label:"11,5 lb", people:"Familia",   scale:1},
+];
+const GALLERY = [
+  ["king-chaulafan-monster","King Chaulafán Monster · 5 lb"],["tallarin-presidente","Tallarín Presidente · $8,50"],
+  ["salteado-pollo-camaron","Salteado de pollo y camarón"],["chaulafan-camaron","Chaulafán con camarones"],
+  ["wantan","Wantán frito"],["combo-chaulafan-salteado","Combo chaulafán + salteado"],["consome","Consomé natural y a la reina"],
+  ["chancho-agridulce","Chancho agridulce"],["alitas-queso","Alitas con queso"],["bandeja-eventos","Bandeja para eventos"]];
+
+const byId = Object.fromEntries(MENU.map(d=>[d.id,d]));
+const money = n => "$" + n.toFixed(2).replace(".", ",");
+const $ = s => document.querySelector(s);
+const esc = s => s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// Marquee
+const words = ["Chaulafán 3 lb","炒饭","King Monster 5 lb","王","Familiar 11,5 lb","家","Tallarín Presidente","面","Wantán","馄饨","A domicilio","送"];
+$("#track").innerHTML = [...words,...words].map(w=>`<span>${w}</span>`).join("");
+
+// Tamaños
+let size = SIZES[0];
+function renderSizes(){
+  $("#sizes").innerHTML = SIZES.map(s=>`<button class="size" type="button" aria-pressed="${s===size}" data-s="${s.id}"><b>${s.label}</b><span>${money(byId[s.id].price)}</span></button>`).join("");
+  const d = byId[size.id];
+  $("#r-price").textContent = money(d.price);
+  $("#r-people").textContent = size.people;
+  $("#r-lb").textContent = money(d.price/size.lb);
+  $("#bowl").style.transform = `scale(${size.scale})`;
+  $("#bowl-lb").textContent = size.label;
+}
+$("#sizes").addEventListener("click",e=>{const b=e.target.closest(".size");if(!b)return;size=SIZES.find(s=>s.id===b.dataset.s);renderSizes();});
+$("#size-add").onclick=()=>add(size.id);
+renderSizes();
+
+// Carta
+const CATS = ["Todo", ...new Set(MENU.map(d=>d.cat))];
+let cat = "Todo";
+function renderTabs(){
+  $("#tabs").innerHTML = CATS.map(c=>`<button class="tab" role="tab" type="button" aria-selected="${c===cat}" data-cat="${c}">${c}</button>`).join("");
+}
+function renderDishes(){
+  $("#dishes").innerHTML = MENU.filter(d=>cat==="Todo"||d.cat===cat).map(d=>`
+    <article class="dish">
+      ${d.img
+        ? `<button class="pic" type="button" data-zoom="${d.img}" aria-label="Ver foto grande de ${esc(d.name)}"><img src="img/${d.img}.jpg" alt="${esc(d.name)}" loading="lazy">${d.lb?`<span class="lb">${d.lb}</span>`:""}</button>`
+        : `<div class="pic none"><span aria-hidden="true">${d.han}</span>${d.lb?`<span class="lb">${d.lb}</span>`:""}</div>`}
+      <div class="body">
+        <header><h3>${d.name}</h3>${d.price!=null?`<span class="price">${money(d.price)}</span>`:`<span class="price ask">Consultar</span>`}</header>
+        <p>${d.desc}</p>
+        <button class="add" type="button" data-id="${d.id}">+ Agregar</button>
+      </div>
+    </article>`).join("");
+}
+$("#tabs").addEventListener("click",e=>{const b=e.target.closest(".tab");if(!b)return;cat=b.dataset.cat;renderTabs();renderDishes();});
+$("#dishes").addEventListener("click",e=>{
+  const z=e.target.closest("[data-zoom]");if(z){openLB(GALLERY.findIndex(g=>g[0]===z.dataset.zoom));return;}
+  const b=e.target.closest(".add");if(!b)return;add(b.dataset.id);b.classList.add("added");b.textContent="✓ Agregado";setTimeout(()=>{b.classList.remove("added");b.textContent="+ Agregar"},1200);
+});
+renderTabs();renderDishes();
+
+// Galería + lightbox
+$("#gallery").innerHTML = GALLERY.map(([f,c],i)=>`<button type="button" data-i="${i}" aria-label="Ver foto: ${esc(c)}"><img src="img/${f}.jpg" alt="${esc(c)}" loading="lazy"></button>`).join("");
+$("#gallery").addEventListener("click",e=>{const b=e.target.closest("button");if(b)openLB(+b.dataset.i)});
+let lbi=0, lastFocus=null;
+function showLB(){const [f,c]=GALLERY[lbi];$("#lb-img").src=`img/${f}.jpg`;$("#lb-img").alt=c;$("#lb-cap").textContent=`${c} · ${lbi+1}/${GALLERY.length}`;}
+function openLB(i){if(i<0)return;lastFocus=document.activeElement;lbi=i;showLB();$("#lightbox").hidden=false;$("#lb-close").focus();}
+function closeLB(){$("#lightbox").hidden=true;lastFocus&&lastFocus.focus();}
+$("#lb-prev").onclick=()=>{lbi=(lbi-1+GALLERY.length)%GALLERY.length;showLB()};
+$("#lb-next").onclick=()=>{lbi=(lbi+1)%GALLERY.length;showLB()};
+$("#lb-close").onclick=closeLB;
+$("#lightbox").addEventListener("click",e=>{if(e.target.id==="lightbox")closeLB()});
+
+// Carrito
+const cart = new Map();
+function add(id){cart.set(id,(cart.get(id)||0)+1);updateCart();const f=$("#fab");f.classList.remove("bump");void f.offsetWidth;f.classList.add("bump");toast(`${byId[id].name} agregado`);}
+function local(){const r=document.querySelector('input[name="local"]:checked');return {num:r.value,name:r.dataset.name};}
+function waLink(num,msg){return `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;}
+function updateCart(){
+  let n=0,t=0,ask=false;
+  cart.forEach((q,id)=>{n+=q;const p=byId[id].price;if(p==null)ask=true;else t+=q*p;});
+  $("#count").textContent=n;$("#total").textContent=money(t);$("#ask-note").hidden=!ask;
+  $("#lines").innerHTML = cart.size ? [...cart].map(([id,q])=>{const d=byId[id];return `
+    <li><b>${d.name}${d.lb&&!d.name.includes("libras")?` (${d.lb})`:""}</b><span class="price${d.price==null?" ask":""}">${d.price==null?"Consultar":money(q*d.price)}</span>
+    <div class="qty"><button type="button" data-d="${id}" aria-label="Quitar uno">−</button><span>${q}</span><button type="button" data-u="${id}" aria-label="Agregar uno">+</button></div></li>`}).join("")
+    : `<li class="empty">Todavía no agregas nada. Elige un tamaño de chaulafán o mira la carta.</li>`;
+  const mode=document.querySelector('input[name="mode"]:checked').value, L=local();
+  const msg=`Hola Casa Chifa (${L.name}), quiero pedir:\n${[...cart].map(([id,q])=>`• ${q} x ${byId[id].name}`).join("\n")}\n${mode}\nTotal aprox.: ${money(t)}${ask?" + platos por confirmar":""}`;
+  $("#send").href=waLink(L.num,msg);
+  $("#send").style.opacity=cart.size?1:.5;$("#send").style.pointerEvents=cart.size?"auto":"none";
+  $("#send-num").textContent=L.num.replace(/^593(\d{2})(\d{3})(\d{4})$/,"0$1 $2 $3");
+  $("#events-wa").href=waLink(L.num,"Hola Casa Chifa, quiero cotizar una bandeja de chaulafán para un evento de ___ personas.");
+}
+$("#lines").addEventListener("click",e=>{const d=e.target.dataset;if(d.u)cart.set(d.u,cart.get(d.u)+1);if(d.d){const q=cart.get(d.d)-1;q?cart.set(d.d,q):cart.delete(d.d)}updateCart();});
+document.querySelectorAll('input[name="mode"],input[name="local"]').forEach(r=>r.addEventListener("change",updateCart));
+$("#fab").onclick=()=>{$("#drawer").hidden=false;$("#close").focus()};
+$("#close").onclick=()=>{$("#drawer").hidden=true;$("#fab").focus()};
+$("#drawer").addEventListener("click",e=>{if(e.target.id==="drawer")$("#drawer").hidden=true});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"){$("#drawer").hidden=true;if(!$("#lightbox").hidden)closeLB();}
+  if(!$("#lightbox").hidden){if(e.key==="ArrowRight")$("#lb-next").click();if(e.key==="ArrowLeft")$("#lb-prev").click();}
+});
+updateCart();
+
+let tt;function toast(s){const t=$("#toast");t.textContent=s;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,1600);}
+
+// Gira el wok
+let picked=null;
+$("#spin").onclick=()=>{
+  const w=$("#wok-art");w.classList.remove("spin");void w.offsetWidth;w.classList.add("spin");
+  let k=0;const iv=setInterval(()=>{$("#pick").textContent=MENU[Math.floor(Math.random()*MENU.length)].name;if(++k>12){clearInterval(iv);
+    const d=MENU[Math.floor(Math.random()*MENU.length)];picked=d.id;$("#pick").textContent=d.name;
+    $("#pick-desc").textContent=`${d.desc} ${d.price!=null?money(d.price):"Precio por confirmar."}`;$("#pick-add").hidden=false;$("#spin").textContent="Girar otra vez";}},110);
+};
+$("#pick-add").onclick=()=>{if(picked)add(picked)};
+
+// Copiar teléfono
+document.querySelectorAll("[data-copy]").forEach(b=>b.onclick=async()=>{
+  try{await navigator.clipboard.writeText(b.dataset.copy);b.textContent="Copiado";}
+  catch{const r=document.createRange();r.selectNodeContents(b.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Seleccionado";}
+  setTimeout(()=>b.textContent="Copiar",1500);
+});
+
+// Abierto / cerrado con hora de Guayaquil
+function status(){
+  const p=new Intl.DateTimeFormat("es-EC",{timeZone:"America/Guayaquil",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date());
+  const m=(+p.find(x=>x.type==="hour").value%24)*60 + +p.find(x=>x.type==="minute").value;
+  const open=m>=OPEN_MIN&&m<CLOSE_MIN;
+  $("#status").classList.toggle("closed",!open);
+  $("#status-txt").textContent=open?"Abierto hasta 10:30 p. m.":"Cerrado · abre 10:30 a. m.";
+}
+status();setInterval(status,60000);
+</script>
+</body>
+</html>
